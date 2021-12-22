@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title></title>
+</head>
+<body>
+        <br><br>
+        <input type="text" placeholder="enter name" [(ngModel)]="name"><br><br>
+        <input type="text" placeholder="enter calories" [(ngModel)]="calories"><br><br>
+        <input type="text" placeholder="image" [(ngModel)]="image"><br><br>
+        <button id="submit" class="b1"(click)="addfood()">Add Food</button><br><br>
+        <div *ngFor="let food of foods | searcher:searchstr" id="eachsearch">
+            <p id="fname">{{food.name}}</p>
+            <p id="cal"> {{food.calories}} calories</p>
+            <img src={{food.image}}><br>
+            <input type="text" placeholder="count" id="qaty" id="quantity" #qaty>
+            <button type="submit" (click)="addlist(food, qaty.value)" id="b1">add</button>
+        </div><br><br>
+        
+        <!-- search -->
+        <input type="text" placeholder="search" id="s1" [(ngModel)]="searchstr">
+        
+
+        
+        <br><br>
+        <div *ngIf="isClicked;" id="table">
+            <h2>Todays foods</h2>
+            <h3>Total calories:{{total}}</h3>
+            <table>
+                <tr>
+                    <th>NAME</th>
+                    <th>CALORIES</th>
+                    <th>QUANTITY</th>
+                </tr>
+                <tr *ngFor="let food of food1 | slice:1; let i = index"  >
+                    <td id="fname">{{food.name}}</td>
+                    <td id="cal">{{food.calories}} calories</td>
+                    <td>{{food.qty}}</td>
+                </tr>
+            </table>
+        </div>
+        <br><br>
+    <div id="main">
+        <div *ngFor="let food of foods" id="eachmain">
+            <p id="fname">{{food.name}}</p>
+            <p id="cal"> {{food.calories}} calories</p>
+            <img src={{food.image}}><br>
+            <input type="text" placeholder="count" id="qaty" id="quantity" #qaty>
+            <button type="submit" (click)="addlist(food, qaty.value)" id="b1">add</button>
+        </div>
+    </div>
+    <br>
+    
+        
+</body>
+</html>

@@ -1,0 +1,9 @@
+h1{
+    height: 7vh;
+    background-color: rgb(238, 188, 130);
+    /* color: white; */
+    padding-top: 1%;
+    font-family: 'Sora', sans-serif;
+    padding-left: 42%;
+    font-size: 2.5em;
+}
